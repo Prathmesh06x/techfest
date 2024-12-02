@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Classifier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #66a6ff, #89f7fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            font-size: 18px;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]:focus {
+            border-color: #66a6ff;
+            outline: none;
+            background-color: #fff;
+        }
+
+        button {
+            padding: 15px 35px;
+            background-color: #66a6ff;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: #4a8bfc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            background-color: #3c7bc6;
+            transform: translateY(2px);
+        }
+
+        button i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #66a6ff;
+            font-weight: 600;
+        }
+
+        /* Responsive Styles for responsive behavior  */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            input[type="file"], button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload a Document Image</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit"><i class="fas fa-upload"></i> Classify</button>
+        </form>
+        <div class="footer">
+            <p>Need help? <a href="#">Contact Us</a></p>
+        </div>
+    </div>
+
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
