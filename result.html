@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Classification Result</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .result-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #ffe47a;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #fdfdfd;
+        }
+
+        .result-type {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .confidence {
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ffd700, #ff7a00);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #ff7a00, #ffd700);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Classification Result</h1>
+        <p>Your document has been classified as:</p>
+        <p class="result-type">{{ result }}</p>
+        
+        {% if confidence %}
+            <p class="confidence">Confidence: {{ '%.2f'|format(confidence * 100) }}%</p>
+        {% else %}
+            <p class="confidence">Confidence information is not available for this model.</p>
+        {% endif %}
+        
+        <a href="/">Upload Another Document</a>
+    </div>
+</body>
+</html>
+
